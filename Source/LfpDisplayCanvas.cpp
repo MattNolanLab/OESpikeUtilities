@@ -3535,13 +3535,14 @@ void LfpChannelDisplay::pxPaint()
             
             if (spikeFlag) // draw spikes
             {
+
                 // the spike flag is determined from above, if data point is lower than the set spike threshold
                 // draw a veritical line instead
-                for (int k=jfrom_wholechannel; k<=jto_wholechannel; k++){ // draw line
+                for (int k=jfrom_wholechannel; k<=jto_wholechannel; k++){ // draw vertical line
                     if(k>0 && k<display->lfpChannelBitmap.getHeight()){
+
                         //bdLfpChannelBitmap.setPixelColour(i,k,lineColour);
-                        Colour currentcolor = display->channelColours[chan];
-                        bdLfpChannelBitmap.setPixelColour(i, k, bdLfpChannelBitmap.getPixelColour(i, k).interpolatedWith(currentcolor, 0.3f));
+                        bdLfpChannelBitmap.setPixelColour(i, k, bdLfpChannelBitmap.getPixelColour(i, k).interpolatedWith(plotterInfo.lineColour, 0.3f));
                     }
                 };
             }
